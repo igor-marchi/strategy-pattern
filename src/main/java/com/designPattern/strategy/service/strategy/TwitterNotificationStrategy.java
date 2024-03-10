@@ -1,17 +1,18 @@
 package com.designPattern.strategy.service.strategy;
 
-import com.designPattern.strategy.service.NotificationService;
 import com.designPattern.strategy.service.NotificationStrategy;
 import com.designPattern.strategy.service.NotificationStrategyType;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class TwitterNotificationStrategy implements NotificationStrategy {
 
-    private final Logger logger = LoggerFactory.getLogger(NotificationService.class);
-
+    private final Logger logger;
 
     private final NotificationStrategyType type = NotificationStrategyType.TWITTER;
+
+    public TwitterNotificationStrategy(Logger logger) {
+        this.logger = logger;
+    }
 
 
     @Override
