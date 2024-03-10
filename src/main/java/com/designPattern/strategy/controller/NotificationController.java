@@ -1,6 +1,7 @@
 package com.designPattern.strategy.controller;
 
 import com.designPattern.strategy.service.NotificationService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +20,7 @@ public class NotificationController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> send(@RequestBody NotificationInputDto notificationInputDto) {
+    public ResponseEntity<Void> send(@Valid @RequestBody NotificationInputDto notificationInputDto) {
         try {
             notificationService.notify(
                     notificationInputDto.channel(),
